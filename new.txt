@@ -1,0 +1,136 @@
+
+<title>Lab 2</title>
+
+
+<?php
+	
+	function drawVowel($vowel, $color)
+	{
+		$vowel = strtoupper($vowel);
+		
+		$hexColor = "";
+		for ($i = 0; $i < 6; $i++) {
+		 do {
+		    $hex = rand(48,70);
+		  } while ($hex > 57 && $hex < 65);
+		  $hexColor.=chr($hex); 
+		}
+		
+		//echo $hexColor . "<Br />";
+		
+		echo "<table border=1>";
+		
+		for($i = 0; $i < 10; $i++)
+		{
+			echo "<tr>";
+			for($k = 0; $k < 8; $k++)
+			{
+				switch ($vowel)
+				{
+					case"A" : 				
+					if($i < 2 || $k < 2 || $k > 5 || $i == 4)
+				{
+					echo "<td style='background-color:rgb(". rand(0,255) . "," . rand(0,255) . "," . rand(0,255) . ")' >";
+					echo "A" . "<br />";
+					
+				}
+				else
+				{
+					echo "<td><br />";	
+				}
+				break;
+				
+					case"E" :
+					if($i < 2 || $k < 2 || $i > 7 || $i >= 4 && $i < 6)
+				{
+					echo "<td style='background-color:$hexColor'>";
+					echo "E" . "<br />";
+					
+				}
+				else
+				{
+					echo "<td><br />";	
+				}
+				break;
+				
+					case"I" : 				
+					if($i < 2 || $k > 2 && $k < 5 || $i > 7)
+				{
+					echo "<td style='background-color:$color'>";
+					echo "I" . "<br />";
+					
+				}
+				else
+				{
+					echo "<td><br />";	
+				}
+				break;
+					case"O" : 				
+					if($i < 2 || $k < 2 || $k > 5 || $i > 7)
+				{
+					echo "<td style='background-color:$color'>";
+					echo "O" . "<br />";
+					
+				}
+				else
+				{
+					echo "<td><br />";	
+				}
+				break;
+					case"U" : 				
+					if($i > 7 || $k < 2 || $k > 5)
+				{
+					echo "<td style='background-color:$color'>";
+					echo "U" . "<br />";
+					
+				}
+				else
+				{
+					echo "<td><br />";	
+				}
+				break;
+				}
+
+				echo "</td>";
+			}
+			echo "</tr>";
+		}    
+	
+		echo "</table>";
+	}
+
+   function ledBoard($message, $color) {
+   	
+	for ($i = 0; $i < strlen($message); $i++) {
+		
+		drawVowel($message[$i], $color);
+	}
+	
+   }
+?>
+
+<style>
+	table
+	{
+		float:left;
+		margin-right:10px;
+	}
+	
+</style>
+
+
+
+
+<?php
+/*
+	drawVowel("A", "red");
+	drawVowel("E", "yellow");
+	drawVowel("I", "blue");
+	drawVowel("O", "pink");
+	drawVowel("U", "green");
+ * 
+ */
+	//$B="Board";
+	ledBoard("AOU", "green");
+
+?>
