@@ -77,6 +77,20 @@
 					echo "<td><br />";	
 				}
 				break;
+					case "T" : 				
+					if($i > 7 || $k < 2 || $k > 5)
+				{
+					echo "<td style='background-color:$color'>";
+					echo "U" . "<br />";
+					
+				}
+				else
+				{
+					echo "<td><br />";	
+				}
+				break;
+				}
+				
 					case"U" : 				
 					if($i > 7 || $k < 2 || $k > 5)
 				{
